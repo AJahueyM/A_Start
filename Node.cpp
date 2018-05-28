@@ -30,8 +30,28 @@ void Node::setPrevious(Node* previous){
     this->previous = previous;
 }
 
-void Node::setWall(bool wall){
-    this->isWall = wall;
+void Node::setWall(Direction dir, bool wall){
+    switch(dir){
+        case Up:{
+            isWallU = wall;
+        }
+        break;
+
+        case Left:{
+            isWallL = wall;
+        }
+        break;
+
+        case Down:{
+            isWallD = wall;
+        }
+        break;
+
+        case Right:{
+            isWallR = wall;
+        }
+        break;
+    }
 }
 
 int Node::getF() const{
@@ -54,8 +74,28 @@ int Node::getY() const{
     return y;
 }
 
-bool Node::getIsWall(){
-    return isWall;
+bool Node::getIsWall(Direction dir){
+    switch(dir){
+        case Up:{
+            return isWallU;
+        }
+        break;
+
+        case Left:{
+            return isWallL;
+        }
+        break;
+
+        case Down:{
+            return isWallD;
+        }
+        break;
+
+        case Right:{
+            return isWallR;
+        }
+        break;
+    }
 }
 
 Node* Node::getPrevious(){
